@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors!</title>
+</head>
+<body>
+    
+<script>
+
+const choices = ["rock", "paper", "scissors"]
+// let playerSelection = "rock"
+
+function computerPlay () {
+    let index = Math.floor(Math.random()*choices.length);
+    console.log(choices[index])
+    return choices[index]
+}
+
+function playRound (playerSelection) {
+    
+    playerSelection = playerSelection.toLowerCase()
+    let computerSelection = computerPlay()
+
+    for (let i = 1; i < choices.length; i++) {
+        if (playerSelection === computerSelection) {
+            return "It's a draw! You both picked " + playerSelection + "!"} 
+        else if (playerSelection === "rock" && computerSelection === "scissors") {
+            return "You win! rock beats scissors!"
+        }
+        else if ((choices.indexOf(playerSelection)) < (choices.indexOf(computerSelection))) {
+            return "You lose! " + computerSelection + " beats " + playerSelection + "!"
+        }
+        else return "You win! " + playerSelection + " beats " + computerSelection + "!"
+    }
+}
+
+// console.log(playRound("rock"))
+
+
+</script>
+
+</body>
+</html>
