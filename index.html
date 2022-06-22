@@ -11,7 +11,9 @@
 <script>
 
 const choices = ["rock", "paper", "scissors"]
-// let playerSelection = "rock"
+let result = ""
+let playerScore = 0
+let computerScore = 0
 
 function computerPlay () {
     let index = Math.floor(Math.random()*choices.length);
@@ -20,24 +22,50 @@ function computerPlay () {
 }
 
 function playRound (playerSelection) {
-    
     playerSelection = playerSelection.toLowerCase()
     let computerSelection = computerPlay()
 
     for (let i = 1; i < choices.length; i++) {
         if (playerSelection === computerSelection) {
-            return "It's a draw! You both picked " + playerSelection + "!"} 
+            return result = "It's a draw this round! You both picked " + playerSelection + "!"
+        } 
         else if (playerSelection === "rock" && computerSelection === "scissors") {
-            return "You win! rock beats scissors!"
+            playerScore++
+            return result = "You win this round! rock beats scissors!"
         }
         else if ((choices.indexOf(playerSelection)) < (choices.indexOf(computerSelection))) {
-            return "You lose! " + computerSelection + " beats " + playerSelection + "!"
+            computerScore++
+            return result = "You lost this round! " + computerSelection + " beats " + playerSelection + "!"
         }
-        else return "You win! " + playerSelection + " beats " + computerSelection + "!"
+        else 
+            playerScore++
+            return result = "You win this round! " + playerSelection + " beats " + computerSelection + "!"
     }
 }
 
-// console.log(playRound("rock"))
+function playGame() {
+
+let gameRunning = true
+
+    while (gameRunning = true) {
+        if (playerScore == 5) {
+            gameRunning = false
+            return "You Win!!!"
+        }
+        else if (computerScore == 5) {
+            gameRunning = false
+            return "You lose!!!"
+        }
+        else {
+            let playerSelection = prompt("pick your weapon!")
+            playRound(playerSelection)
+            console.log(result)
+            console.log("player " + playerScore + " computer " + computerScore)
+        }   
+    }
+} 
+
+console.log(playGame())
 
 
 </script>
