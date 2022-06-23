@@ -5,70 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors!</title>
+    <script src="script.js " defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-<script>
-
-const choices = ["rock", "paper", "scissors"]
-let result = ""
-let playerScore = 0
-let computerScore = 0
-
-function computerPlay () {
-    let index = Math.floor(Math.random()*choices.length);
-    console.log(choices[index])
-    return choices[index]
-}
-
-function playRound (playerSelection) {
-    playerSelection = playerSelection.toLowerCase()
-    let computerSelection = computerPlay()
-
-    for (let i = 1; i < choices.length; i++) {
-        if (playerSelection === computerSelection) {
-            return result = "It's a draw this round! You both picked " + playerSelection + "!"
-        } 
-        else if (playerSelection === "rock" && computerSelection === "scissors") {
-            playerScore++
-            return result = "You win this round! rock beats scissors!"
-        }
-        else if ((choices.indexOf(playerSelection)) < (choices.indexOf(computerSelection))) {
-            computerScore++
-            return result = "You lost this round! " + computerSelection + " beats " + playerSelection + "!"
-        }
-        else 
-            playerScore++
-            return result = "You win this round! " + playerSelection + " beats " + computerSelection + "!"
-    }
-}
-
-function playGame() {
-
-let gameRunning = true
-
-    while (gameRunning = true) {
-        if (playerScore == 5) {
-            gameRunning = false
-            return "You Win!!!"
-        }
-        else if (computerScore == 5) {
-            gameRunning = false
-            return "You lose!!!"
-        }
-        else {
-            let playerSelection = prompt("pick your weapon!")
-            playRound(playerSelection)
-            console.log(result)
-            console.log("player " + playerScore + " computer " + computerScore)
-        }   
-    }
-} 
-
-console.log(playGame())
-
-
-</script>
-
+    <div class="container">
+        <div class="scores">
+            <p class="left">0</p>
+            <p class="right">0</p>
+        </div>
+        <div id="buttons">
+            <button id="thump">Thump</button>
+            <button id="pawper">Pawper</button>
+            <button id="slicers">Slicers</button>
+        </div>
+        <p class="gameText">TEST</p>
+        <div id="buttons">
+            <button id="reset">Reset</button>
+        </div>
+    </div>
 </body>
 </html>
